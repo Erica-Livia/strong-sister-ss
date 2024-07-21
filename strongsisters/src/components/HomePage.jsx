@@ -61,7 +61,7 @@ const HomePage = () => {
 
       <div className="mt-8">
         <h2 className="text-xl mb-4">What's your emergency?</h2>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4 pb-10">
           <button 
             className="bg-gray-100 rounded-full px-4 py-1 flex items-center space-x-1"
             onClick={() => openModal('gbv')}
