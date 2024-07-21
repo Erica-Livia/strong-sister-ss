@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FaCamera, FaBell } from 'react-icons/fa';
 import { GiDrippingKnife } from "react-icons/gi";
 import { FaHandcuffs, FaBriefcaseMedical } from "react-icons/fa6";
-import silence from "../assets/silence.png"; 
+import silence from "../assets/silence.jpg"; 
 import { FaCloudShowersWater } from "react-icons/fa6";
 import { MdOutlinePhonelinkRing } from "react-icons/md";
 import Modal from './Modal';
@@ -22,14 +22,14 @@ const HomePage = () => {
   };
 
   return (
-    <div className="p-4">
-      <div className="flex justify-between items-center mb-4">
-        <div className="text-xl">Kinanira Bujumbura, Burundi</div>
+    <div className="p-4 text-darkBlue">
+      <div className="flex justify-between items-center mb-4 bg-darkGrey py-5">
+        <div className="text-l font-bold">Kinanira Bujumbura, Burundi</div>
         <div className="flex space-x-4">
-          <button className="text-2xl">
+          <button className="text-xl">
             <FaCamera />
           </button>
-          <button className="text-2xl">
+          <button className="text-xl">
             <FaBell />
           </button>
         </div>
@@ -38,21 +38,27 @@ const HomePage = () => {
       <div className="mt-8 flex">
         <div className="w-1/2 pr-4">
           <p className="text-lg">
-            <strong>Are you in an emergency?</strong> Press shake your phone, your live location will be shared with the nearest help centre and your emergency contacts.
-          </p>
+            <strong>Are you in an emergency?</strong></p> 
+            <p> Press shake your phone, your live location will be shared with the nearest help centre and your emergency contacts.</p>
         </div>
-        <div className="w-1/2">
+        <div className="w-1/2 h-full">
           <img src={silence} alt="Emergency Image" className="w-full h-auto" />
         </div>
       </div>
 
-      <div className="mt-8 flex justify-center">
-        <div className="relative bg-red-600 text-white rounded-full w-32 h-32 flex items-center justify-center shadow-lg">
-          <div className="absolute inset-0 flex items-center justify-center">
+      <div className="mt-8 flex justify-center bg-darkGrey py-2">
+        <div className="relative border rounded-full p-5 shadow-lg bg-darkGrey">
+          <div className="relative bg-darkRed rounded-full p-5 shadow-lg">
+          <div className= "relative bg-red text-white rounded-full w-28 h-28 flex items-center justify-center shadow-lg">
+            <div className="absolute inset-0 flex items-center justify-center">
             <MdOutlinePhonelinkRing className='text-3xl bottom-4'/>
           </div>
-          <div className="absolute bottom-8 text-xs">Shake your phone</div>
+          <div className="absolute bottom-4 text-xs">Shake your phone</div>
+          </div>
+          
         </div>
+        </div>
+        
       </div>
 
       <div className="mt-8">

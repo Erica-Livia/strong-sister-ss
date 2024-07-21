@@ -8,6 +8,7 @@ import AiChatBotPage from './components/AiChatBotPage';
 // import Login from './components/Login';
 // import Register from './components/Register';
 import Welcome from './components/Welcome';
+import ProfilePage from './components/Profile';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="/emergency-circle" element={<EmergencyCircle />} />
           <Route path="/ai-chatbot" element={<AiChatBotPage />} />
           <Route path="*" element={<Welcome />} />
+          <Route path="/profile" element={<ProfilePage />}/>
         </Routes>
         <Navbar />
       </div>
