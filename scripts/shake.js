@@ -28,9 +28,20 @@
     }
 
     function alertUser() {
-        document.getElementById('status').innerText = "Shake detected! Alerting emergency contact...";
-        // Code to alert the emergency contact goes here.
-        // This can be done through an API call or sending a message.
+        const modal = document.getElementById('myModal');
+        const span = document.getElementsByClassName('close')[0];
+
+        modal.style.display = 'block';
+
+        span.onclick = function() {
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
     }
 
     if (window.DeviceMotionEvent) {

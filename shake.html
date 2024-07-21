@@ -4,10 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shake Detection</title>
+    <link rel="stylesheet" href="/styles/shake.css">
 </head>
 <body>
     <h1>Shake Detection</h1>
     <p id="status">Shake your phone to trigger an alert.</p>
-    <script src="/scripts/shake.js"></script>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Shake detected! Alerting emergency contact...</p>
+        </div>
+    </div>
+
+    <script src="shake.js"></script>
 </body>
 </html>
