@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import useShakeDetection from '../utils/useShakeDetection';
+import { MdOutlinePhonelinkRing } from 'react-icons/md';
 
 const AiChatBotPage = () => {
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [alertSent, setAlertSent] = useState(false); // New state for alert
 
   let lastRequestTime = 0;
 
@@ -69,6 +72,20 @@ const AiChatBotPage = () => {
     }
   }, []);
 
+  const handleShake = () => {
+    setAlertSent(true);
+    // Implement the alert sending logic
+    sendAlert(['contact1@example.com', 'contact2@example.com']);
+  };
+
+  useShakeDetection(handleShake);
+
+  const sendAlert = (contacts) => {
+    // Implement actual alert sending logic
+    console.log('Alert sent to:', contacts);
+    // You could use APIs to send SMS, emails, etc.
+  };
+
   return (
     <div className="flex flex-col h-screen bg-darkGrey">
       <div className="flex-shrink-0 text-darkBlue p-4 shadow-md">
@@ -83,6 +100,11 @@ const AiChatBotPage = () => {
           </div>
         ))}
         {loading && <div className="text-gray-500 text-center mt-4">Loading...</div>}
+        {alertSent && (
+          <div className="text-red-500 text-center p-2 bg-red-100 border border-red-400">
+            Emergency Alert Sent!
+          </div>
+        )}
       </div>
       {error && <div className="text-red-500 text-center p-2 bg-red-100 border border-red-400">{error}</div>}
       <div className="p-4 pb-28 bg-white shadow-inner flex items-center">
@@ -100,6 +122,14 @@ const AiChatBotPage = () => {
         >
           Send
         </button>
+      </div>
+      <div className="fixed bottom-8 right-8">
+        <div className="relative bg-gradient-to-r from-red-600 via-red-700 to-red-800 text-white rounded-full w-28 h-28 flex items-center justify-center shadow-lg">
+          <div className="absolute inset-0 flex items-center justify-center">
+            <MdOutlinePhonelinkRing className="text-3xl" />
+          </div>
+          <div className="absolute bottom-4 text-xs">Shake your phone</div>
+        </div>
       </div>
     </div>
   );
